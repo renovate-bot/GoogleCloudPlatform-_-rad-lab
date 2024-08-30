@@ -13,11 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
-# data "google_compute_image" "debian" {
-#   project = "debian-cloud"
-#   family  = "debian-10"
-# }
 
 //Create nextflow service account and assign required roles
 module "nextflow_service_account" {
@@ -53,7 +48,7 @@ resource "google_compute_instance" "nextflow_server" {
   boot_disk {
     initialize_params {
       # image = data.google_compute_image.debian.self_link
-      image = "debian-cloud/debian-10"
+      image = "debian-cloud/debian-12"
 
       size  = 50
     }

@@ -14,11 +14,6 @@
  * limitations under the License.
  */
 
-# data "google_compute_image" "debian" {
-#   project = "debian-cloud"
-#   family  = "debian-10"
-# }
-
 //Create Cromwell service account and assign required roles
 module "cromwell_service_account" {
   source       = "terraform-google-modules/service-accounts/google"
@@ -53,7 +48,7 @@ resource "google_compute_instance" "cromwell_server" {
   boot_disk {
     initialize_params {
       # image = data.google_compute_image.debian.self_link
-      image = "debian-cloud/debian-10"
+      image = "debian-cloud/debian-12"
 
     }
   }
